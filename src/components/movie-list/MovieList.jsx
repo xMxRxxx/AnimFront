@@ -19,7 +19,7 @@ const MovieList = props => {
     useEffect(() => {
         if (props.type !== undefined ) {
             if(props.type === "Popular"){
-                fetch(`http://animback.herokuapp.com/film/${props.category}/popular`,{
+                fetch(`https://animback.herokuapp.com/film/${props.category}/popular`,{
                 method:'GET',
                 headers : {
                     'Content-Type':'application/json',
@@ -32,7 +32,7 @@ const MovieList = props => {
                 
         }
         else if(props.category === "Anime" ){
-            fetch(`http://animback.herokuapp.com/film/${props.category}/${props.type}/`,{ 
+            fetch(`https://animback.herokuapp.com/film/${props.category}/${props.type}/`,{ 
                 method:'GET',
                 headers : {
                     'Content-Type':'application/json',
