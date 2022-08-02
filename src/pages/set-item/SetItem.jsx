@@ -66,7 +66,7 @@ const SetItem = () => {
             // await axios.post({
            await axios.post({
             method : 'post',
-            url : 'http://localhost:8000/api/enjeItem/',
+            url : 'http://animback.herokuapp.com/api/enjeItem/',
             data : formField,
             
 

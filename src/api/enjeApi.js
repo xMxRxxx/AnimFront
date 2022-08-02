@@ -29,7 +29,7 @@ const enjeApi = {
         //                     }).then((res) => {
         //                     if (res.ok) return res.json()
         //                     }).then((res) => setItems(res)).catch((err) => console.log(err));
-        const url = 'http://127.0.0.1:8000/film/category/Movie' ;
+        const url = 'http://animback.herokuapp.com/film/category/Movie' ;
         return axiosClient.get(url);
     },
     getAnimeList: (type, params) => {

@@ -41,7 +41,7 @@ const UpdateDelPage = () => {
     'Space', 'Sports', 'Supernatural','Super Power','Thriller',
     'Vampire'];
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/enjeItem/',{
+    fetch('http://animback.herokuapp.com/api/enjeItem/',{
       method:'GET',
       headers : {
         'Content-Type':'application/json',
@@ -129,7 +129,7 @@ const UpdateDelPage = () => {
         
         try {
             axios
-            .put(`http://localhost:8000/api/enjeItem/${id_item}/`, formField)
+            .put(`http://animback.herokuapp.com/api/enjeItem/${id_item}/`, formField)
             .then((res) => {
               alert("SUKSES")
               window.location.reload(false)
@@ -143,7 +143,7 @@ const UpdateDelPage = () => {
     const DeletItem =  async() =>{
       try {
         axios
-        .delete(`http://localhost:8000/api/enjeItem/${id_item}`)
+        .delete(`http://animback.herokuapp.com/api/enjeItem/${id_item}`)
         .then((res) => {
           alert("SUKSES")
           window.location.reload(false)

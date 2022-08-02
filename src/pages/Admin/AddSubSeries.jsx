@@ -47,7 +47,7 @@ const AddSubSeries = () => {
     ];
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/api/enjeItem/',{
+        fetch('http://animback.herokuapp.com/api/enjeItem/',{
           method:'GET',
           headers : {
             'Content-Type':'application/json',
@@ -86,7 +86,7 @@ const AddSubSeries = () => {
         
         try {
             axios
-            .post("http://localhost:8000/api/enjeSubItem/", formField)
+            .post("http://animback.herokuapp.com/api/enjeSubItem/", formField)
             .then((res) => {
               alert("SUKSES")
               window.location.reload(false)

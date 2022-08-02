@@ -24,7 +24,7 @@ const MovieGrid = props => {
             if (keyword === undefined){
                 switch(props.category){
                     case category.movie:
-                        fetch(`http://127.0.0.1:8000/film/${props.category}/`,{
+                        fetch(`http://animback.herokuapp.com/film/${props.category}/`,{
                             method:'GET',
                             headers : {
                                 'Content-Type':'application/json',
@@ -36,7 +36,7 @@ const MovieGrid = props => {
                         break;
                     case category.anime:
                         if(props.tipes !== undefined){
-                            fetch(`http://127.0.0.1:8000/film/${props.category}/genre/${props.tipes}`,{
+                            fetch(`http://animback.herokuapp.com/film/${props.category}/genre/${props.tipes}`,{
                             method:'GET',
                             headers : {
                                 'Content-Type':'application/json',
@@ -46,7 +46,7 @@ const MovieGrid = props => {
                             if (res.ok) return res.json()
                             }).then((res) => setItems(res)).catch((err) => console.log(err));
                         }else{
-                                fetch(`http://127.0.0.1:8000/film/${props.category}`,{
+                                fetch(`http://animback.herokuapp.com/film/${props.category}`,{
                                 method:'GET',
                                 headers : {
                                     'Content-Type':'application/json',

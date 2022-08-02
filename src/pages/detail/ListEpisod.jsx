@@ -17,7 +17,7 @@ const ListEpisod = props => {
   const [item, setItem] = useState([]);
   const streamlink="";
   useEffect(() => {
-        fetch(`http://127.0.0.1:8000/film/subdetail/${props.id}`,{
+        fetch(`http://animback.herokuapp.com/film/subdetail/${props.id}`,{
           method:'GET',
           headers : {
             'Content-Type':'application/json',

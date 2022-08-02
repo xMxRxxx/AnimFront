@@ -16,7 +16,7 @@ const Detail = () => {
     const [item, setItem] = useState([]);
     
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/film/detail/${id}`,{
+        fetch(`http://animback.herokuapp.com/film/detail/${id}`,{
           method:'GET',
           headers : {
             'Content-Type':'application/json',
