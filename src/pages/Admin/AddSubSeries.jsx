@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 import getYear from "date-fns/getYear";
 import getMonth from "date-fns/getYear";
 
+import apiConfig from '../../api/apiConfig';
 import "react-datepicker/dist/react-datepicker.css";
 
 const AddSubSeries = () => {
@@ -47,7 +48,7 @@ const AddSubSeries = () => {
     ];
 
     useEffect(() => {
-        fetch('http://animback.herokuapp.com/api/enjeItem/',{
+        fetch(apiConfig.baseUrl+"api/enjeItem/",{
           method:'GET',
           headers : {
             'Content-Type':'application/json',
@@ -86,7 +87,7 @@ const AddSubSeries = () => {
         
         try {
             axios
-            .post("http://animback.herokuapp.com/api/enjeSubItem/", formField)
+            .post(apiConfig.baseUrl+"api/enjeSubItem/", formField)
             .then((res) => {
               alert("SUKSES")
               window.location.reload(false)

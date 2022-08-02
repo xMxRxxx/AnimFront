@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router';
 import { useNavigate } from 'react-router-dom';
-
 import './movie-grid.scss';
-
 import MovieCard from '../movie-card/MovieCard';
 import Button, { OutlineButton } from '../button/Button';
-import Input from '../input/Input'
-
-// import tmdbApi, { category, movieType, tvType } from '../../api/tmdbApi';
+import Input from '../input/Input';
+import apiConfig from '../../api/apiConfig';
 import enjeApi, { category } from '../../api/enjeApi';
 
 const MovieGrid = props => {
@@ -24,7 +21,7 @@ const MovieGrid = props => {
             if (keyword === undefined){
                 switch(props.category){
                     case category.movie:
-                        fetch(`http://animback.herokuapp.com/film/${props.category}/`,{
+                        fetch(apiConfig.baseUrl+`film/${props.category}/`,{
                             method:'GET',
                             headers : {
                                 'Content-Type':'application/json',
@@ -36,7 +33,7 @@ const MovieGrid = props => {
                         break;
                     case category.anime:
                         if(props.tipes !== undefined){
-                            fetch(`http://animback.herokuapp.com/film/${props.category}/genre/${props.tipes}`,{
+                            fetch(apiConfig.baseUrl+`film/${props.category}/genre/${props.tipes}`,{
                             method:'GET',
                             headers : {
                                 'Content-Type':'application/json',
@@ -46,7 +43,7 @@ const MovieGrid = props => {
                             if (res.ok) return res.json()
                             }).then((res) => setItems(res)).catch((err) => console.log(err));
                         }else{
-                                fetch(`http://animback.herokuapp.com/film/${props.category}`,{
+                                fetch(apiConfig.baseUrl+`film/${props.category}`,{
                                 method:'GET',
                                 headers : {
                                     'Content-Type':'application/json',

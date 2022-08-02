@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './UpdateDelPage.scss';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import apiConfig from '../../api/apiConfig';
 
 const UpdateDelPage = () => {
   const [backdrop,setbackdrop] = useState(null)
@@ -41,7 +42,7 @@ const UpdateDelPage = () => {
     'Space', 'Sports', 'Supernatural','Super Power','Thriller',
     'Vampire'];
   useEffect(() => {
-    fetch('http://animback.herokuapp.com/api/enjeItem/',{
+    fetch(apiConfig.baseUrl+"api/enjeItem/",{
       method:'GET',
       headers : {
         'Content-Type':'application/json',
@@ -129,7 +130,7 @@ const UpdateDelPage = () => {
         
         try {
             axios
-            .put(`http://animback.herokuapp.com/api/enjeItem/${id_item}/`, formField)
+            .put(apiConfig.baseUrl+`api/enjeItem/${id_item}/`, formField)
             .then((res) => {
               alert("SUKSES")
               window.location.reload(false)
@@ -143,7 +144,7 @@ const UpdateDelPage = () => {
     const DeletItem =  async() =>{
       try {
         axios
-        .delete(`http://animback.herokuapp.com/api/enjeItem/${id_item}`)
+        .delete(apiConfig.baseUrl+`api/enjeItem/${id_item}`)
         .then((res) => {
           alert("SUKSES")
           window.location.reload(false)

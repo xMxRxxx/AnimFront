@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 import getYear from "date-fns/getYear";
 import getMonth from "date-fns/getYear";
 
+import apiConfig from '../../api/apiConfig';
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -79,7 +80,7 @@ const AddSeries = () => {
         
         try {
             axios
-            .post("https://animback.herokuapp.com/api/enjeItem/", formField)
+            .post(apiConfig.baseUrl+"api/enjeItem/", formField)
             .then((res) => {
               alert("SUKSES")
               window.location.reload(false)

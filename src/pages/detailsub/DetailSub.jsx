@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import './DetailSub.scss';
 import ListSeries from './ListSeries';
+import apiConfig from '../../api/apiConfig';
+
 const DetailSub = () => {
     const { id } = useParams();
     const [item, setItem] = useState([]);
     useEffect(() => {
-        fetch(`http://animback.herokuapp.com/film/details/${id}`,{
-          method:'GET',
+        fetch(apiConfig.baseUrl+`film/details/${id}`,{
+          method:'GET', 
           headers : {
             'Content-Type':'application/json',
           }

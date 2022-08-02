@@ -3,6 +3,7 @@ import './SetItem.scss';
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import apiConfig from '../../api/apiConfig';
 
 const SetItem = () => {
     const [backdrop,setbackdrop] = useState(null)
@@ -66,7 +67,7 @@ const SetItem = () => {
             // await axios.post({
            await axios.post({
             method : 'post',
-            url : 'http://animback.herokuapp.com/api/enjeItem/',
+            url : apiConfig.baseUrl+'api/enjeItem/', 
             data : formField,
             
 

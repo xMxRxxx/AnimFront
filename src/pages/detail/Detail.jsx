@@ -6,7 +6,7 @@ import ListEpisod from './ListEpisod';
 import VideoList from './VideoList';
 import { OutlineButton } from '../../components/button/Button';
 import MovieList from '../../components/movie-list/MovieList';
-
+import apiConfig from '../../api/apiConfig';
 import { categorys, Type_s} from '../../api/enjeApi';
 
 const Detail = () => {
@@ -16,7 +16,7 @@ const Detail = () => {
     const [item, setItem] = useState([]);
     
     useEffect(() => {
-        fetch(`http://animback.herokuapp.com/film/detail/${id}`,{
+        fetch(apiConfig.baseUrl+`film/detail/${id}`,{
           method:'GET',
           headers : {
             'Content-Type':'application/json',

@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-
 import SwiperCore, { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import Button, { OutlineButton } from '../button/Button';
 import Modal, { ModalContent } from '../modal/Modal';
 import enjeApi, { category as categorys } from '../../api/enjeApi';
-
+import apiConfig from '../../api/apiConfig';
 import './hero-slide.scss';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,7 +14,7 @@ const HeroSlide = () => {
 
     const [movieItems, setMovieItems] = useState([]);
     useEffect(() => {
-        fetch(`https://animback.herokuapp.com/film/${categorys.movie}/`,{
+        fetch(apiConfig.baseUrl+`film/${categorys.movie}/`,{
           method:'GET',
           headers : {
             'Content-Type':'application/json',
@@ -26,19 +24,6 @@ const HeroSlide = () => {
           if (res.ok) return res.json()
         }).then((res) => setMovieItems(res.slice(0,3))).catch((err) => console.log(err));
       }, [])
-    // useEffect(() => {
-    //     const getMovies = async () => {
-    //         const params = {page: 1}
-    //         try {
-    //             const response = await tmdbApi.getMoviesList(movieType.popular, {params});
-    //             setMovieItems(response.results.slice(1, 4));
-    //             console.log(response);
-    //         } catch {
-    //             console.log('error');
-    //         }
-    //     }
-    //     getMovies();
-    // }, []);
 
     return (
         <div className="hero-slide">

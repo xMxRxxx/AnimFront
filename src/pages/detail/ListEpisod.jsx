@@ -1,23 +1,21 @@
 import React, { useEffect, useState, useRef} from 'react';
-
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-
 import Button, { OutlineButton } from '../../components/button/Button';
 import './ListEpisod.scss';
-
 import Modal, { ModalContent } from '../../components/modal/Modal';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import PopupLink from './PopupLink';
+import apiConfig from '../../api/apiConfig';
 
 const ListEpisod = props => {
   const link = '/' + 'film/details' + '/';
   const [item, setItem] = useState([]);
   const streamlink="";
   useEffect(() => {
-        fetch(`http://animback.herokuapp.com/film/subdetail/${props.id}`,{
+        fetch(apiConfig.baseUrl+`film/subdetail/${props.id}`,{
           method:'GET',
           headers : {
             'Content-Type':'application/json',

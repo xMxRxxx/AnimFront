@@ -7,19 +7,6 @@ import tmdbApi from '../../api/tmdbApi';
 const VideoList = props => {
 
     const {category} = useParams();
-
-    // const [videos, setVideos] = useState([]);
-    // useEffect(() => {
-    //     fetch(`http://127.0.0.1:8000/film/detail/${props.id}`,{
-    //       method:'GET',
-    //       headers : {
-    //         'Content-Type':'application/json',
-    //       }
-          
-    //     }).then((res) => {
-    //       if (res.ok) return res.json()
-    //     }).then((res) => setVideos(res)).catch((err) => console.log(err));
-    //   }, [])
     const iframeRef = useRef(null);
     useEffect(() => {
         const height = iframeRef.current.offsetWidth * 9 / 16 + 'px';
