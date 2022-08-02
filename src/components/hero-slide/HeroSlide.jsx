@@ -16,7 +16,7 @@ const HeroSlide = () => {
 
     const [movieItems, setMovieItems] = useState([]);
     useEffect(() => {
-        fetch(`http://animback.herokuapp.com/film/${categorys.movie}/`,{
+        fetch(`https://animback.herokuapp.com/film/${categorys.movie}/`,{
           method:'GET',
           headers : {
             'Content-Type':'application/json',
