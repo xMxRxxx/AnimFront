@@ -79,7 +79,7 @@ const AddSeries = () => {
         
         try {
             axios
-            .post("http://animback.herokuapp.com/api/enjeItem/", formField)
+            .post("https://animback.herokuapp.com/api/enjeItem/", formField)
             .then((res) => {
               alert("SUKSES")
               window.location.reload(false)
