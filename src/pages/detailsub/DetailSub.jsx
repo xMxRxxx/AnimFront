@@ -26,14 +26,6 @@ const DetailSub = () => {
         <div className="mb-3 movie-content container">
            <ListSeries />
         </div>
-        
-        {/* <div className="mb-3 movie-content container">
-            <div className="movie-content__info">
-                <h1 className="title">
-                    oke
-                </h1>
-            </div>
-        </div> */}
         </>
     )}
     

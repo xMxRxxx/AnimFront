@@ -12,8 +12,8 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 const AddSeries = () => {
-    const [backdrop,setbackdrop] = useState(null)
-    const [poster,setposter] = useState(null)
+    const [backdrop,setbackdrop] = useState("")
+    const [poster,setposter] = useState("")
     const [series,setseries] = useState("")
     const [category,setcategory] = useState([])
     const [description,setdescription] = useState("")
@@ -58,10 +58,8 @@ const AddSeries = () => {
     const addItem =  async() =>{
         let formField = new FormData()
        
-        if(backdrop !== null && poster !== null){
-            formField.append('backdrop_path',backdrop)
-            formField.append('poster_path',poster)
-        }
+        formField.append('backdrop_path',backdrop)
+        formField.append('poster_path',poster)
         formField.append('series',series)
         category.map(function (ct) {  
             formField.append('category',ct)
@@ -113,24 +111,24 @@ const AddSeries = () => {
       }
   return (
     <>
-    <div className="banner" style={{backgroundImage: `url("https://image.tmdb.org/t/p/original//rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg")`}}></div>
+    <div className="banner" style={{backgroundImage: `url("https://images2.imgbox.com/51/70/jE0MyIDR_o.jpg")`}}></div>
     <div className="mb-3 movie-content container">
         <div className="movie-content__poster">
-            <div className="movie-content__poster__img" style={{backgroundImage: `url("https://image.tmdb.org/t/p/original//jrgifaYeUtTnaH7NF5Drkgjg2MB.jpg")`}}></div>
+            <div className="movie-content__poster__img" style={{backgroundImage: `url("https://images2.imgbox.com/44/e2/GudW1dRF_o.png")`}}></div>
         </div>
         <div className="movie-content__info">
             <h1>SETUP ITEM</h1>
             <div className="genres">     
                 <span className='label_input'>
                     Backdrop :</span>
-                    <input type="file" className='checkbox-outline' name='backdrop' src={backdrop}
-                    onChange={(e) => setbackdrop(e.target.files[0])}/>
+                    <input type="text" placeholder="Enter keyword" name='backdrop' value={backdrop}
+                    onChange={(e) => setbackdrop(e.target.value)}/>
             </div>
             <div className="genres">     
                 <span className='label_input'>
                     Poster   :</span>
-                    <input type="file" className='checkbox-outline' name='poster' src={poster}
-                    onChange={(e) => setposter(e.target.files[0])}/>
+                    <input type="text" placeholder="Enter keyword" name='poster' value={poster}
+                    onChange={(e) => setposter(e.target.value)}/>
             </div>
             <div className="genres">     
                 <span className='label_input'>
